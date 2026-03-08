@@ -11,24 +11,15 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat 'python -m pip install -r requirements.txt'
+                bat '"C:\\Python313\\python.exe" -m pip install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat 'python test_app.py'
-            }
-        }
-
-        stage('Run Application') {
-            steps {
-                bat 'python app.py'
+                bat '"C:\\Python313\\python.exe" test_app.py'
             }
         }
 
     }
 }
-
-
-
