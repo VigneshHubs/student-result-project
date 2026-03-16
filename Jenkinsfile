@@ -3,15 +3,21 @@ pipeline {
 
     stages {
 
+        stage('Create Virtual Environment') {
+            steps {
+                bat 'python -m venv venv'
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
-                bat 'python -m pip install -r requirements.txt'
+                bat 'venv\\Scripts\\pip install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat 'python test_app.py'
+                bat 'venv\\Scripts\\python test_app.py'
             }
         }
 
